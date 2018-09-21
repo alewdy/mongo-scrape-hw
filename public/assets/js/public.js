@@ -1,51 +1,9 @@
-//Handle Scrape button
-// try it
-// you dont need to start the server its on just go to localhost
-// you tried ? i just saved//try it now the button didnt have the href link ..... only an id of scrape so it would scrape but not pull the info to the page
-$("#scrape").on("click", function() {
-    $.ajax({
-        method: "GET",
-        url: "/scrape",
-    }).done(function(data) {
-        console.log(data)
-        window.location = "/"
-    })
-});
-
-//Set clicked nav option to active
-$(".navbar-nav li").click(function() {
-   $(".navbar-nav li").removeClass("active");
-   $(this).addClass("active");
-});
-
-//Handle Save Article button
-$(".save").on("click", function() {
-    var thisId = $(this).attr("data-id");
-    $.ajax({
-        method: "POST",
-        url: "/articles/save/" + thisId
-    }).done(function(data) {
-        window.location = "/"
-    })
-});
-
-//Handle Delete Article button
-$(".delete").on("click", function() {
-    var thisId = $(this).attr("data-id");
-    $.ajax({
-        method: "POST",
-        url: "/articles/delete/" + thisId
-    }).done(function(data) {
-        window.location = "/saved"
-    })
-});
-
 $(document).ready(function () {
     // event handler for deleting a note
     $(".delete-btn").click(function (event) {
         event.preventDefault();
         const id = $(this).attr("data");
-        $.ajax(`/remove/`+id, {
+        $.ajax(`/remove/${id}`, {
             type: "PUT"
         }).then(function(){
             location.reload();
@@ -58,7 +16,7 @@ $(document).ready(function () {
         const id = $(this).attr("data");
         $('#article-id').text(id);
         $('#save-note').attr('data', id);
-        $.ajax(`/articles/`+id, {
+        $.ajax(`/articles/${id}`, {
             type: "GET"
         }).then(function (data) {
             console.log(data)
@@ -82,7 +40,7 @@ $(document).ready(function () {
             console.log($(this).attr("data"))
             const id = $(this).attr("data");
             console.log(id);
-            $.ajax(`/note/`+id, {
+            $.ajax(`/note/${id}`, {
                 type: "DELETE"
             }).then(function () {
                 $('#note-modal').modal('toggle');
@@ -94,7 +52,7 @@ $(document).ready(function () {
         const id = $(this).attr('data');
         const noteText = $('#note-input').val().trim();
         $('#note-input').val('');
-        $.ajax(`/note/`+id, {
+        $.ajax(`/note/${id}`, {
             type: "POST",
             data: { text: noteText}
         }).then(function (data) {
@@ -103,4 +61,22 @@ $(document).ready(function () {
         $('#note-modal').modal('toggle');
     });
 
+    $(".save-btn").click(function(event) {
+        event.preventDefault();
+        const button = $(this);
+        const id = button.attr("id");
+        $.ajax(`/save/${id}`, {
+            type: "PUT"
+        }).then(function() {
+            const alert = `
+            <div class="alert alert-warning alert-dismissible fade show" role="alert">
+            Your note has been saved!
+            <button type="button" class="close" data-dismiss="alert" aria-label="Close">
+                <span aria-hidden="true">&times;</span>
+            </button>
+            </div>`
+            button.parent().append(alert);
+            }
+        );
+    });
 });

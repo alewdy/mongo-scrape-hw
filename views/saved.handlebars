@@ -1,37 +1,50 @@
-<!--Saved Articles Page-->
-
-<div class="container">
-
-    <div class="col-md-12 jumbotron">
-        <div class="text-center">
-            <h1> Saved Articles</h1>
+<nav class="navbar navbar-expand-lg navbar-dark bg-dark">
+    <a class="navbar-brand" href="/">Mongo Scraper</a>
+    <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNavAltMarkup" aria-controls="navbarNavAltMarkup"
+        aria-expanded="false" aria-label="Toggle navigation">
+        <span class="navbar-toggler-icon"></span>
+    </button>
+    <div class="collapse navbar-collapse" id="navbarNavAltMarkup">
+        <div class="navbar-nav">
+            <a class="nav-item nav-link" href="/">Home</a>
+            <a class="nav-item nav-link active" href="/saved">Saved Articles
+                <span class="sr-only">(current)</span>
+            </a>
+            <button href="/saved" type="button" class="btn btn-danger" id="scrape">Scrape NYT</button>
         </div>
     </div>
-    <div class="col-md-12">
-        {{#if article}}
-            {{#each article}}
-                <div class="panel panel-default">
-                    <div class="panel-heading">
-                        <h4>{{this.title}}</h4>
+</nav>
+<div class="container-fluid">
+        <div class="jumbotron text-center background-image">
+            <div class="overlay">
+                <div class="caption">
+                    <h1 class="display-1 text-white">Mongo Scraper</h1>
+                    <h2 class="text-white">NYT Edition</h2>
+                </div>
+            </div>
+        </div>
+    <div class=row>
+        <div class="col-12">
+            {{#each articles}}
+                <div class="card w-90">
+                    <div class="card-header text-white bg-primary">
+                        <a href={{link}} target="_blank" class="text-white">
+                            <h2>{{title}}</h2>
+                        </a>
                     </div>
-                    <div class="panel-body">
-                        <p> {{this.summary}}</p>
-                        <a href={{this.link}} target="_blank">{{this.link}}</a>
-                        <br><br>
-                        <button data="{{_id}}" class="btn btn-info note-btn">Article Notes</button>  
-                        <button type="button" class="btn btn-danger delete" data-id={{this._id}}>Delete</button>
+                    <div class="card-body">
+                        <p class="card-text">
+                            {{summary}}
+                        </p>
+                        <button data="{{_id}}" class="btn btn-info note-btn">Article Notes</button>
+                        <button data="{{_id}}" class="btn btn-danger delete-btn">Delete From Saved</button>
                     </div>
                 </div>
             {{/each}}
-        {{else}}
-        <div class="panel panel-default">
-            <div class="panel-body">
-                <h4>You have no saved articles.</h4>
-            </div>
         </div>
-        {{/if}}
     </div>
-    <div class="modal fade" id="note-modal" tabindex="-1" role="dialog" aria-labelledby="successMessage" aria-hidden="true">
+</div>
+<div class="modal fade" id="note-modal" tabindex="-1" role="dialog" aria-labelledby="successMessage" aria-hidden="true">
     <div class="modal-dialog" role="document">
         <div class="modal-content">
             <div class="modal-header">
@@ -54,9 +67,7 @@
             <div class="modal-footer">
                 <button type="button" class="btn btn-secondary" id="save-note">Save Note</button>
             </div>
-              <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/js/bootstrap.min.js" integrity="sha384-ChfqqxuZUCnJSK3+MXmPNIyE6ZbWh2IMqE241rYiqJxyMiZ6OW/JmZQ5stwEULTy" crossorigin="anonymous"></script>
-        <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0-beta.3/css/bootstrap.min.css">
         </div>
     </div>
 </div>
-</div>
+
