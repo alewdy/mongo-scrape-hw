@@ -7,13 +7,13 @@ Scrape the New York Times homepage, then save and add notes to your favorite art
 For a live example, see a deployed version to Heroku at https://glacial-oasis-46115.herokuapp.com/
 
 Downloading This Application
-To use this application:
+#To use this application:
 
 Ensure that Node.js, npm, and MongoDB are installed on your machine. For instructions, see the Technologies Used section below.
 
-Next, clone this repo to your local machine:
+#Next, clone this repo to your local machine:
 
-git clone git@github.com:stoversa/NYT-Mongo-Scraper.git
+git clone 
 Open the repo and execute the following in the bash terminal. Doing so should install the application's dependencies:
 npm i
 Run the application from the command line:
