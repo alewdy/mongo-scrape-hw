@@ -9,14 +9,13 @@
   },
   "repository": {
     "type": "git",
-    "url": "git+https://github.com/PPhanouvong/MongoScrapper.git"
+    "url": "https://github.com/Yungcode34/New-York-Times-Scraper"
   },
   "author": "",
   "license": "ISC",
   "bugs": {
-    "url": "https://github.com/PPhanouvong/MongoScrapper/issues"
+    
   },
-  "homepage": "https://github.com/PPhanouvong/MongoScrapper#readme",
   "dependencies": {
     "body-parser": "^1.18.3",
     "cheerio": "^1.0.0-rc.2",

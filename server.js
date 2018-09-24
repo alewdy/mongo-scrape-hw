@@ -41,8 +41,8 @@ app.engine("handlebars", exphbs({
 app.set("view engine", "handlebars");
 
 // Database configuration with mongoose
-//mongoose.connect("mongodb://heroku_jmv816f9:5j1nd4taq42hi29bfm5hobeujd@ds133192.mlab.com:33192/heroku_jmv816f9");
-mongoose.connect("mongodb://localhost/mongoscraper");
+mongoose.connect("mongodb://heroku_jmv816f9:5j1nd4taq42hi29bfm5hobeujd@ds133192.mlab.com:33192/heroku_jmv816f9");
+//mongoose.connect("mongodb://localhost/mongoscraper");
 var db = mongoose.connection;
 
 // Show any mongoose errors
@@ -82,7 +82,7 @@ app.get("/saved", function(req, res) {
 app.get("/scrape", function(req, res) {
   // First, we grab the body of the html with request
   request("https://www.nytimes.com/world", function(error, response, html) {
-    // Then, we load that into cheerio and save it to $ for a shorthand selector
+
     var $ = cheerio.load(html);
     // Now, we grab every h2 within an article tag, and do the following:
     $("article").each(function(i, element) {
@@ -95,8 +95,7 @@ app.get("/scrape", function(req, res) {
       result.summary = $(this).children(".summary").text();
       result.link = $(this).children("h2").children("a").attr("href");
 
-      // Using our Article model, create a new entry
-      // This effectively passes the result object to the entry (and the title and link)
+
       var entry = new Article(result);
 
       // Now, save that entry to the db
@@ -135,7 +134,7 @@ app.get("/articles", function(req, res) {
 
 // Grab an article by it's ObjectId
 app.get("/articles/:id", function(req, res) {
-  // Using the id passed in the id parameter, prepare a query that finds the matching one in our db...
+
   Article.findOne({ "_id": req.params.id })
   // ..and populate all of the notes associated with it
   .populate("note")
