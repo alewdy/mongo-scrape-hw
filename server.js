@@ -81,7 +81,7 @@ app.get("/saved", function(req, res) {
 // A GET request to scrape the echojs website
 app.get("/scrape", function(req, res) {
   // First, we grab the body of the html with request
-  request("https://www.nytimes.com/world", function(error, response, html) {
+  request("https://www.nytimes.com/", function(error, response, html) {
 
     var $ = cheerio.load(html);
     // Now, we grab every h2 within an article tag, and do the following:
