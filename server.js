@@ -42,9 +42,10 @@ app.set("view engine", "handlebars");
 
 // Database configuration with mongoose
 //mongoose.connect("mongodb://heroku_hsk6v3nd:jmm1rbfu0dhk69r4g7hific8pi@ds111618.mlab.com:11618/heroku_hsk6v3nd");
-var MONGODB_URI = process.env.MONGODB_URI || "mongodb://localhost/mongoscraper";
+var MONGODB_URI = process.env.MONGODB_URI || "mongodb://localhost/newsScraper";
+mongoose.Promise = Promise;
+mongoose.connect(MONGODB_URI, {useNewUrlParser: true});
 
-mongoose.connect(MONGODB_URI);
 
 
 // Routes
