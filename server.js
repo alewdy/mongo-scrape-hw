@@ -42,7 +42,7 @@ app.set("view engine", "handlebars");
 
 // Database configuration with mongoose
 //mongoose.connect("mongodb://heroku_hsk6v3nd:jmm1rbfu0dhk69r4g7hific8pi@ds111618.mlab.com:11618/heroku_hsk6v3nd");
-var MONGODB_URI = process.env.MONGODB_URI || "mongodb://localhost/newsScraper";
+var MONGODB_URI = process.env.MONGODB_URI || "mongodb://heroku_hsk6v3nd:jmm1rbfu0dhk69r4g7hific8pi@ds111618.mlab.com:11618/heroku_hsk6v3nd";
 mongoose.Promise = Promise;
 mongoose.connect(MONGODB_URI, {useNewUrlParser: true});
 
@@ -78,15 +78,15 @@ app.get("/scrape", function(req, res) {
 
     var $ = cheerio.load(html);
     // Now, we grab every h2 within an article tag, and do the following:
-    $("article").each(function(i, element) {
+    $("article.css-180b3ld").each(function(i, element) {
 
       // Save an empty result object
       var result = {};
 
       // Add the title and summary of every link, and save them as properties of the result object
-      result.title = $(this).children("h2").text();
-      result.summary = $(this).children(".summary").text();
-      result.link = $(this).children("h2").children("a").attr("href");
+      result.title = $(this).find("h2").text();
+      result.summary = $(this).find("p").text();
+      result.link = $(this).find("a").attr("href");
 
 
       var entry = new Article(result);
