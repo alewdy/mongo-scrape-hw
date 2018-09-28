@@ -1,3 +1,4 @@
+<<<<<<< HEAD
 # New-York-Times-Scraper
 
 This is a Node.js application that utilizes Cheerio and a MongoDB back-end to scrape and save NYT articles to a Bootstrap UI.
@@ -30,3 +31,6 @@ mongoose
 body-parser
 cheerio
 request
+=======
+# mongo-scrape-hw
+>>>>>>> 67ec17ad9f72ce503d01fc17a1ce43ceafc30a43
