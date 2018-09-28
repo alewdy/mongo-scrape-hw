@@ -9,13 +9,11 @@
   },
   "repository": {
     "type": "git",
-    "url": "https://github.com/Yungcode34/New-York-Times-Scraper"
-  },
+    "url": "https://github.com/alewdy/mongo-scrape-hw"
+  }, 
   "author": "",
   "license": "ISC",
-  "bugs": {
-    
-  },
+  "bugs": {},
   "dependencies": {
     "body-parser": "^1.18.3",
     "cheerio": "^1.0.0-rc.2",
