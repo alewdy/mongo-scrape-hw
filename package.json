@@ -9,13 +9,10 @@
   },
   "repository": {
     "type": "git",
-    "url": "https://github.com/alewdy/mongo-scrape-hw"
+    "url": "git+https://github.com/alewdy/mongo-scrape-hw.git"
   },
   "author": "",
   "license": "ISC",
-  "bugs": {
-    
-  },
   "dependencies": {
     "body-parser": "^1.18.3",
     "cheerio": "^1.0.0-rc.2",
@@ -25,5 +22,10 @@
     "morgan": "^1.9.1",
     "request": "^2.88.0",
     "require": "^2.4.20"
+  },
+  "homepage": "https://github.com/alewdy/mongo-scrape-hw#readme",
+  "devDependencies": {},
+  "bugs": {
+    "url": "https://github.com/alewdy/mongo-scrape-hw/issues"
   }
 }
