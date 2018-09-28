@@ -1,5 +1,4 @@
 {
-<<<<<<< HEAD
   "name": "mongoscrapper",
   "version": "1.0.0",
   "description": "---",
@@ -11,48 +10,20 @@
   "repository": {
     "type": "git",
     "url": "https://github.com/alewdy/mongo-scrape-hw"
-  }, 
-  "author": "",
-  "license": "ISC",
-  "bugs": {},
-  "dependencies": {
-    "body-parser": "^1.18.3",
-=======
-  "name": "mongo-scrape-hw",
-  "version": "1.0.0",
-  "description": "",
-  "main": "server.js",
-  "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1"
-  },
-  "repository": {
-    "type": "git",
-    "url": "git+https://github.com/alewdy/mongo-scrape-hw.git"
   },
   "author": "",
   "license": "ISC",
   "bugs": {
-    "url": "https://github.com/alewdy/mongo-scrape-hw/issues"
+    
   },
-  "homepage": "https://github.com/alewdy/mongo-scrape-hw#readme",
   "dependencies": {
-    "body": "^5.1.0",
->>>>>>> 67ec17ad9f72ce503d01fc17a1ce43ceafc30a43
+    "body-parser": "^1.18.3",
     "cheerio": "^1.0.0-rc.2",
     "express": "^4.16.3",
     "express-handlebars": "^3.0.0",
     "mongoose": "^5.2.16",
-<<<<<<< HEAD
     "morgan": "^1.9.1",
     "request": "^2.88.0",
     "require": "^2.4.20"
   }
-=======
-    "parser": "^0.1.4",
-    "request": "^2.88.0"
-  },
-  "scripts": {
-       "start": "node server.js"
-     }
->>>>>>> 67ec17ad9f72ce503d01fc17a1ce43ceafc30a43
 }
